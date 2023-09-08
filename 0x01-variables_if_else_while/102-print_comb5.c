@@ -30,7 +30,7 @@ int main(void)
 			putchar(' ');
 			putchar(k + '0');
 			putchar(r + '0');
-	}
+
 		if (i != 9 || j != 8 || k != 9 || r != 9)
 		{
 		putchar(',');
@@ -39,6 +39,7 @@ int main(void)
 		else
 		{
 		putchar('\n');
+	}
 		}
 		}
 		}
