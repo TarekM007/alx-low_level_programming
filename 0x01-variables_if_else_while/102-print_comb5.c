@@ -21,13 +21,16 @@ int main(void)
 		{
 			for (k = 0 ; k <= 9; k++)
 		{
-			for (r = 1 ; r <= 9; r++)
+			for (r = 0 ; r <= 9; r++)
 		{
+			if (i != 0 || j != 0 || k != 0 || r != 0)
+	{
 			putchar(i + '0');
 			putchar(j + '0');
 			putchar(' ');
 			putchar(k + '0');
 			putchar(r + '0');
+	}
 		if (i != 9 || j != 8 || k != 9 || r != 9)
 		{
 		putchar(',');
