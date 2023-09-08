@@ -20,7 +20,8 @@ int main(void)
 		for (j = 0 ; j < 9; j++)
 		{
 			for (k = 0 ; k <= 9; k++)
-		{			for (r = 0 ; r <= 9; r++)
+		{
+			for (r = 1 ; r <= 9; r++)
 		{
 			putchar(i + '0');
 			putchar(j + '0');
