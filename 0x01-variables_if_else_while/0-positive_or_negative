@@ -1,13 +1,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+
 /**
  * main - Entry point
  *
- * Description: positive or negative number by using if statement
+ * Description: false or true validation
  *
  * Return: 0 (Success)
- */
+*/
+
 int main(void)
 {
 	int n;
