@@ -1,16 +1,18 @@
 #include "main.h"
-#include <stdio.h>
-
 /**
- * main - check the code
- *
- * Return: Always 0.
- */
-void foo() {
-	printf("_putchar");
-}
-int main()
+  * main - Entry point
+  *
+  * Return: Always 0
+  */
+int main(void)
 {
-	foo();
-	return 0;
+char str[] = "_putchar";
+int ch;
+
+for (ch = 0; ch < 8; ch++)
+{
+	_putchar(str[ch]);
+}
+_putchar("\n");
+return (0);
 }
