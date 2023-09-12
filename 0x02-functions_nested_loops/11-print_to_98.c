@@ -7,25 +7,31 @@
  */
 void print_to_98(int n)
 {
-int i, j;
+	int i;
 
-printf("enter n ");
-if (n <= 98)
-{
-for (i = n; i <= 98; i++)
-{
-printf("%d", i);
-_putchar(',');
-_putchar(' ');
-}
-}
-else
-{
-for (j = n; j >= 98; j--)
-{
-printf("%d", j);
-_putchar(',');
-_putchar(' ');
-}
+	if (n == 98)
+	{
+		printf("98");
+	}
+	else if (n < 98)
+	{
+		for (i = n ; i <= 98 ; i++)
+		{
+			printf("%d", i);
+			if (i < 98)
+				printf(", ");
+		}
+	}
+	else if (n > 98)
+	{
+		for (i = n ; i >= 98 ; i--)
+		{
+			printf("%d", i);
+			if (i > 98)
+				printf(", ");
+
+		}
+	}
+	printf("\n");
 }
 }
