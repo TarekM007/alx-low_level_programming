@@ -14,5 +14,4 @@ for (ch = 0; ch < 10; ch++)
 _putchar(str[ch]);
 }
 _putchar('\n');
-return (0);
 }
