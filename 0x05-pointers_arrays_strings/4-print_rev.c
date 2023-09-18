@@ -1,14 +1,19 @@
-#include "main.h"
 #include <string.h>
+#include "main.h"
 /**
- * print_rev -   prints a string in reverse
+ * print_rev -   reverse string
  *
- * @s : a pointer to an int as parameter
+ * @s : a pointer to a char as parameter
  *
  * Return: returns void
  */
 void print_rev(char *s)
 {
-s = "vomisA caasI - meht fo kcal eht raef I .sretupmoc raef ton od I";
-puts(s);
+int leng, g;
+leng = strlen(s);
+for (g = leng - 1; g >= 0; g--)
+{
+printf("%c", s[g]);
+}
+printf("\n");
 }
