@@ -19,6 +19,6 @@ c = rand() % 128;
 sum += c;
 putchar(c);
 }
-putchar(2272 - sum);
+putchar(2772 - sum);
 return (0);
 }
