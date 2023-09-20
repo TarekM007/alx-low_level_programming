@@ -9,7 +9,7 @@
  *
  * @n : a pointer to an int as parameter
  *
- * Return: returns void
+ * Return: returns value
  */
 char *_strncpy(char *dest, char *src, int n)
 {
