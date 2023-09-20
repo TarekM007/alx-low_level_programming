@@ -11,8 +11,8 @@ char *leet(char *s)
 {
 int j;
 char *r = s;
-char a[] = {'a' , 'e' , 'o' , 't' , 'l'};
-char n[] = {4 , 3 , 0 , 7 , 1};
+char a[] = {'a', 'e', 'o', 't', 'l'};
+char n[] = {4, 3, 0, 7, 1};
 
 while (*s)
 {
