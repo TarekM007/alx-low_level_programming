@@ -3,7 +3,7 @@
 /**
  * cap_string - capitalize all words
  *
- * @str : a pointer to a char as parameter
+ * @s : a pointer to a char as parameter
  *
  * Return: returns value
  */
