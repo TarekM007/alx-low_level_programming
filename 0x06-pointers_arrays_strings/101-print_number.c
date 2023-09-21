@@ -2,7 +2,7 @@
 #include <string.h>
 #include "main.h"
 /**
- * print_number- prints numbers
+ * print_number - prints numbers
  *
  * @n : an int as parameter
  *
@@ -16,6 +16,8 @@ _putchar('-');
 n = -n;
 }
 if (n / 10)
+{
 print_number(n / 10);
+}
 _putchar(n % 10 + '0');
 }
