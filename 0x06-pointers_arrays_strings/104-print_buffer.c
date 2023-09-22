@@ -17,7 +17,7 @@ return (n >= 32 && n <= 126);
  * @end: int as parameter
  */
 
-void printHexes (char *b, int start, int end)
+void printHexes(char *b, int start, int end)
 {
 int i = 0;
 
@@ -38,7 +38,7 @@ i++;
  * @start: int as parameter
  * @end: int as parameter
  */
-void printASCII (char *b, int start, int end)
+void printASCII(char *b, int start, int end)
 {
 int ch, i = 0;
 
@@ -70,6 +70,7 @@ printHexes(b, start, end);
 printASCII(b, start, end);
 printf("\n");
 }
-} else
+}
+else
 printf("\n");
 }
