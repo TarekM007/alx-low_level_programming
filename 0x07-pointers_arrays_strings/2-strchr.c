@@ -6,10 +6,15 @@
  *
  * @c: char as parameter
  *
- * Return: returns a pointer
+ * Return: returns a value or a NULL
  */
 char *_strchr(char *s, char c)
 {
-_strchr(s, c);
+do {
+if (*s == c)
+{
 return (s);
+}
+} while (*s++);
+return (0);
 }
