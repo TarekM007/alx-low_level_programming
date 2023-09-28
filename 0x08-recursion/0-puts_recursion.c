@@ -15,7 +15,7 @@ for (i = 0; i <= 25; i++)
 {
 if (s[i] == '\0')
 break;
-putchar(s[i]);
+	putchar(s[i]);
 }
 putchar('\n');
 }
