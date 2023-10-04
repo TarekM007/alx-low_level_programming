@@ -3,23 +3,32 @@
 #include <stdlib.h>
 
 /**
- * _strdup - a function that creates memory using malloc
- * @str: a character as parameter
+ * _strdup - returns a pointer to a newly allocated space in memory, which
+ * contains a copy of the string given as a parameter.
+ * @str: string to copy
  *
- * Return: returns value
+ * Return: value
  */
 char *_strdup(char *str)
 {
-char *src;
-char *p;
-int len = 0;
+	int l, i;
+	char *s;
 
-while (str[len])
-len++;
-src = malloc(len + 1);
-p = src;
-while (*str)
-*p++ = *str++;
-*p = '\0';
-return (src);
+	if (str == NULL)
+		return (0);
+
+	l = 0;
+	while (*(str + l))
+		l++;
+
+	s = malloc(sizeof(char) * l + 1);
+
+	if (s == 0)
+		return (0);
+
+	for (i = 0; i <= l; i++)
+	{
+		*(s + i) = *(str + i);
+	}
+	return (s);
 }
