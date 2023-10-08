@@ -16,7 +16,7 @@ char *s;
 unsigned int i, j, l1, l2, size;
 
 l1 = strlen(s1);
-l2 = strlen(s2);
+l2 = n * (sizeof(char));
 size = (l1 + l2 + 1);
 s = calloc(size, sizeof(char));
 if (s == 0)
