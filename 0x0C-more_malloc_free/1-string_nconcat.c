@@ -27,7 +27,7 @@ if (s == 0)
 return (0);
 for (i = 0; i < l1; i++)
 s[i] = s1[i];
-for (i = 0, j = l1; s[i] != '\0' && i < n; j++, i++)
+for (i = 0, j = l1; s2[i] != '\0' && i < n; j++, i++)
 s[j] = s2[i];
 s[j] = '\0';
 return (s);
