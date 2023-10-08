@@ -24,7 +24,7 @@ if (s2 == NULL)
 s2 = "\0";
 s = calloc(size, sizeof(char));
 if (s == 0)
-return (NULL);
+return (0);
 if (n >= l2)
 {
 for (i = 0; i < l1; i++)
