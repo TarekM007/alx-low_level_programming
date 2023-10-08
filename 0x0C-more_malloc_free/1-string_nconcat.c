@@ -13,7 +13,7 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 char *s;
-unsigned int l1, l2, i, j, size;
+unsigned int i, j, l1, l2, size;
 
 l1 = strlen(s1);
 l2 = strlen(s2);
@@ -25,6 +25,14 @@ s2 = "\0";
 s = calloc(size, sizeof(char));
 if (s == 0)
 return (NULL);
+if (n >= l2)
+{
+for (i = 0; i < l1; i++)
+s[i] = s1[i];
+for (i = 0, j = l1; j < l1 + l2; j++, i++)
+s[j] = s2[i];
+s[j] = '\0';
+}
 for (i = 0; i < l1; i++)
 s[i] = s1[i];
 for (i = 0, j = l1; j < l1 + n; j++, i++)
