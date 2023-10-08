@@ -24,7 +24,7 @@ if (s1 == NULL)
 s1 = "\0";
 if (s2 == NULL)
 s2 = "\0";
-s = calloc(size, sizeof(char));
+s = malloc(size * sizeof(char));
 if (s == 0)
 return (0);
 if (n >= l3)
