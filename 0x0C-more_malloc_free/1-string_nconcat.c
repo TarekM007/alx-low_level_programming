@@ -18,10 +18,6 @@ unsigned int i, j, l1, l2, size;
 l1 = strlen(s1);
 l2 = strlen(s2);
 size = (l1 + l2 + 1);
-if (s1 == NULL)
-s1 = "\0";
-if (s2 == NULL)
-s2 = "\0";
 s = calloc(size, sizeof(char));
 if (s == 0)
 return (NULL);
