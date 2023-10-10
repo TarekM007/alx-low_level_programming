@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include "main.h"
 #ifndef DOG_H
 #define DOG_H
 
