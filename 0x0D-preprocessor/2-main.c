@@ -1,6 +1,8 @@
 #include <stdio.h>
 /**
- * main - Prints the program name, followed by a new line
+ * main - Prints the program name, followed by a new line.
+ *
+ * Return: returns Always 0.
  */
 int main(void)
 {
