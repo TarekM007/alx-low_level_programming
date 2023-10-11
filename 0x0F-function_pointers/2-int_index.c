@@ -6,7 +6,7 @@
  * @size: size as parameter.
  * @cmp: A pointer to the function to be executed.
  */
-int int_index(int *array, int size, int (*cmp)(int)){
+int int_index(int *array, int size, int (*cmp)(int))
 {
 	int index;
 
