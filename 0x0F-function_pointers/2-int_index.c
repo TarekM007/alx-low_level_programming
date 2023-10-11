@@ -5,6 +5,7 @@
  * @array: array as parameter.
  * @size: size as parameter.
  * @cmp: A pointer to the function to be executed.
+ * Return: return error or value.
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
