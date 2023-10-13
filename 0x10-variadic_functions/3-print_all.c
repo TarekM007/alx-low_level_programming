@@ -1,42 +1,46 @@
 #include <stdarg.h>
 #include <stdio.h>
-#include "variadic_functions.h"
 
 /**
- * print_all - a function that prints all data types
- * @format: contains data types
- * Return: void
+ * print_all - print all char, int, float, and string parameters
+ * @format: contains data types of parameters in order
  */
-void print_all(const char * const format, ...){
-int x = 0;
-char *s;
-va_list args;
+void print_all(const char * const format, ...)
+{
+	unsigned int i = 0;
+	va_list params;
+	char *s, *sep = "";
 
-va_start(args, format);
-if (format != NULL)
-{
-while (format[x]){
-switch (format[x])
-{
-case 'i':
-printf("%d, ", va_arg(args, int));
-break;
-case 'c':
-printf("%c, ", va_arg(args, int));
-break;
-case 'f':
-printf("%f, ", va_arg(args, double));
-break;
-case 's':
-s = va_arg(args, char *);
-if (s == NULL)
-printf("nill");
-printf("%s", s);
-break;    
-}
-x++;
-}
-printf("\n");
-va_end(args);
-}
+	if (format)
+	{
+		va_start(params, format);
+		while (format[i])
+		{
+			switch (format[i])
+			{
+				case 'c':
+					printf("%s%c", sep, va_arg(params, int));
+					break;
+				case 'i':
+					printf("%s%d", sep, va_arg(params, int));
+					break;
+				case 'f':
+					printf("%s%f", sep, va_arg(params, double));
+					break;
+				case 's':
+					s = va_arg(params, char *);
+					if (!s)
+						s = "(nil)";
+					printf("%s%s", sep, s);
+					break;
+				default:
+					i++;
+					continue;
+			}
+			sep = ", ";
+			i++;
+		}
+		va_end(params);
+	}
+	printf("\n");
 }
