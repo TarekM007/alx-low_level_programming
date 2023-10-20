@@ -1,4 +1,4 @@
-#include "list.h"
+#include "lists.h"
 /**
  * add_node_end- a funcion that inserts node at the end
  * @head: a pointer to a pointer to list_t as parameter

@@ -1,4 +1,4 @@
-#include "list.h"
+#include "lists.h"
 /**
  * free_list- a function that frees a list_t list
  * @head: a pointer to a pointer to list_t as parameter

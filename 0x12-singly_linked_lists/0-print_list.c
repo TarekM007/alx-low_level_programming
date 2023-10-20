@@ -1,4 +1,4 @@
-#include "list.h"
+#include "lists.h"
 /**
  * print_list- a funcion that prints contents of nodes
  * @h: a pointer to list_t as parameter
