@@ -10,7 +10,7 @@ size_t count = 0;
 const listint_t *ptr = h;
 
 if (h == NULL)
-return(0);
+return (0);
 while (ptr != NULL)
 {
 count++;
