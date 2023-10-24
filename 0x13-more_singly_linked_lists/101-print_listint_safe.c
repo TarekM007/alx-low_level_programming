@@ -7,18 +7,14 @@
 size_t print_listint_safe(const listint_t *head)
 {
 const listint_t *ptr = head;
+const listint_t *visitedNode = NULL;
 size_t Count = 0;
 
-while (ptr != NULL && ptr->next != head)
+while (ptr != NULL && ptr != visitedNode)
 {
-printf("%d ", ptr->data);
+printf("%d ", ptr->n);
+visitedNode = ptr;
 ptr = ptr->next;
-Count++;
-}
-
-if (ptr != NULL)
-{
-printf("%d ", ptr->data);
 Count++;
 }
 printf("\n");

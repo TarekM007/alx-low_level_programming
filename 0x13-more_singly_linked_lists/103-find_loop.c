@@ -6,14 +6,23 @@
  */
 listint_t *find_listint_loop(listint_t *head)
 {
-listint_t *ptr = *head, *ptr2 = *head;
+listint_t *ptr = head;
+listint_t *ptr2 = head;
 
-while (ptr && ptr2 && ptr2->next)
+while (ptr2 != NULL && ptr2->next != NULL)
 {
 ptr = ptr->next;
 ptr2 = ptr2->next->next;
 if (ptr == ptr2)
-return (1);
+break;
 }
-return (0);
+if (ptr2 == NULL || ptr2->next == NULL)
+return (NULL);
+ptr = head;
+while (ptr != ptr2)
+{
+ptr = ptr->next;
+ptr2 = ptr2->next;
+}
+return (ptr);
 }
