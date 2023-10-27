@@ -6,6 +6,6 @@
 int get_endianness(void)
 {
 unsigned int x = 0x01;
-char* byte = (char*)&x;
-return (int)*byte;
+char *byte = (char *)&x;
+return ((int) *byte);
 }
