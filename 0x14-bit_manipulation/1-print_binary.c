@@ -22,7 +22,8 @@ printf("0");
 }
 mask = mask >> 1;
 }
-if (leading_zeros) {
+if (leading_zeros)
+{
 printf("0");
 }
 }
