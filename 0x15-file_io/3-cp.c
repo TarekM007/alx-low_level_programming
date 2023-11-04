@@ -9,40 +9,46 @@
  *              If file_to cannot be created or written to - exit code 99.
  *              If file_to or file_from cannot be closed - exit code 100.
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-const char *file_from = argv[1], *file_to = argv[2];
-char buffer[BUFFER_SIZE];
-int fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-ssize_t bytes_read, bytes_written;
-int fd_from = open(file_from, O_RDONLY);
+	int fdfrom, fdto, checkr, checkw, checkc1, checkc2;
+	char buff[1024];
 
-if (argc != 3)
-dprintf(2, "Usage: %s file_from file_to\n", argv[0]), exit(97);
-if (fd_from == -1)
-dprintf(2, "Error: Can't read from file %s\n", file_from), exit(98);
-if (fd_to == -1)
-dprintf(2, "Error: Can't write to %s\n", file_to), close(fd_from), exit(99);
-while ((bytes_read = read(fd_from, buffer, BUFFER_SIZE)) > 0)
-{
-bytes_written = write(fd_to, buffer, bytes_read);
-if (bytes_written == -1)
-{
-dprintf(2, "Error: Can't write to %s\n", file_to);
-close(fd_from);
-close(fd_to);
-exit(99); }}
-if (bytes_read == -1)
-{
-dprintf(2, "Error: Can't read from file %s\n", file_from);
-close(fd_from);
-close(fd_to);
-exit(98); }
-if (close(fd_from) == -1)
-{
-dprintf(2, "Error: Can't close fd %d\n", fd_from);
-close(fd_to);
-exit(100); }
-if (close(fd_to) == -1)
-dprintf(2, "Error: Can't close fd %d\n", fd_to), exit(100);
-return (0); }
+	if (argc != 3)
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
+
+	fdfrom = open(argv[1], O_RDONLY);
+	if (fdfrom == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+
+	fdto = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (fdto == -1)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+
+
+	while ((checkr = read(fdfrom, buff, 1024)) > 0)
+	{
+		checkw = write(fdto, buff, checkr);
+		if (checkw != checkr)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			exit(99);
+		}
+	}
+	if (checkr == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	checkc1 = close(fdfrom);
+	if (checkc1 == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fdfrom), exit(100);
+	checkc2 = close(fdto);
+	if (checkc2 == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fdto), exit(100);
+
+	return (0);
+}

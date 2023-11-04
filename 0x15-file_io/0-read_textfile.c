@@ -10,40 +10,34 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-FILE *file = fopen(filename, "r");
-char *buffer = (char *)malloc(letters * sizeof(char));
-ssize_t bytesRead = fread(buffer, sizeof(char), letters, file);
-ssize_t bytesWritten = fwrite(buffer, sizeof(char), bytesRead, stdout);
+	int fd, checkr, checkw;
+	char *c;
 
-if (file == NULL)
-{
-perror("Error opening file");
-return (-1);
-}
+	if (filename == 0)
+		return (0);
 
-if (buffer == NULL)
-{
-perror("Error allocating memory");
-fclose(file);
-return (-1);
-}
-if (bytesRead < 0)
-{
-perror("Error reading file");
-fclose(file);
-free(buffer);
-return (-1);
-}
+	c = malloc(letters + 1);
 
-if (bytesWritten < 0)
-{
-perror("Error writing to standard output");
-fclose(file);
-free(buffer);
-return (-1);
-}
+	if (c == 0)
+		return (0);
 
-fclose(file);
-free(buffer);
-return (bytesWritten);
+	fd  = open(filename, O_RDONLY);
+
+	if (fd == -1)
+		return (free(c), 0);
+
+	checkr = read(fd, c, letters);
+
+	if (checkr == -1)
+		return (free(c), 0);
+
+	c[letters] = '\0';
+
+	checkw = write(STDOUT_FILENO, c, checkr);
+	if (checkw == -1)
+		return (free(c), 0);
+
+	free(c);
+	close(fd);
+	return (checkw);
 }
