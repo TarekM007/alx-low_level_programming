@@ -21,3 +21,9 @@ fclean:
 	$(RM) $(NAME) $(OBJ) *~ .*~
 
 re: fclean all
+
+ifdef m
+ifeq ("$(wildcard m.h)","")
+$(error Header file m.h not found)
+endif
+endif
