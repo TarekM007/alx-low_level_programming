@@ -5,6 +5,7 @@ SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
 NAME = school
 RM = rm -f
+.phony: all clean oclean fclean re
 
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
@@ -16,6 +17,6 @@ oclean:
 	$(RM) $(OBJ)
 
 fclean:
-	$(RM) $(NAME) $(OBJ) *~ .*
+	$(RM) $(NAME) $(OBJ) *~ .*~
 	
 re: fclean all
