@@ -1,4 +1,4 @@
-nclude "search_algos.h"
+#include "search_algos.h"
 
 /**
  * linear_search - search for a number in an array
